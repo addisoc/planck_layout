@@ -15,12 +15,14 @@
  */
 
 #include QMK_KEYBOARD_H
+#include "action_tapping.h" // necessary for action_tapping_process
 
 #define _LAYER0 0
 #define _LAYER1 1
 #define _LAYER2 2
 #define _LAYER3 3
 #define _LAYER4 4
+
 
 enum custom_keycodes {
     LAYER0 = SAFE_RANGE,
@@ -29,6 +31,7 @@ enum custom_keycodes {
     LAYER3,
     LAYER4,
 };
+
 
  const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
