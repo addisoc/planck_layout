@@ -5,11 +5,7 @@
 
 enum combo_events {
 	ADDISON,
-	CLASS,
-	EXTENDS,
-    OBJECT,
-    OVERRIDE,
-    VAL,
+	CURL,
     COMBO_LENGTH,
 };
 
@@ -17,19 +13,11 @@ int COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM BSPC_A_COMBO[]   = {KC_BSPC,  KC_A,    COMBO_END};
 const uint16_t PROGMEM BSPC_C_COMBO[]   = {KC_BSPC,  KC_C,    COMBO_END};
-const uint16_t PROGMEM BSPC_E_COMBO[]   = {KC_BSPC,  KC_E,    COMBO_END};
-const uint16_t PROGMEM BSPC_O_B_COMBO[]   = {KC_BSPC,  KC_O, KC_B,   COMBO_END};
-const uint16_t PROGMEM BSPC_O_R_COMBO[]   = {KC_BSPC,  KC_O, KC_R,   COMBO_END};
-const uint16_t PROGMEM BSPC_V_COMBO[]   = {KC_BSPC,  KC_V,   COMBO_END};
 
 
 combo_t key_combos[COMBO_COUNT] = {
 	[ADDISON]    = COMBO_ACTION(BSPC_A_COMBO),
-	[CLASS]    = COMBO_ACTION(BSPC_C_COMBO),
-	[EXTENDS]    = COMBO_ACTION(BSPC_E_COMBO),
-    [OBJECT]    = COMBO_ACTION(BSPC_O_B_COMBO),
-    [OVERRIDE]    = COMBO_ACTION(BSPC_O_R_COMBO),
-    [VAL]    = COMBO_ACTION(BSPC_V_COMBO),
+	[CURL]    = COMBO_ACTION(BSPC_C_COMBO),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -44,31 +32,10 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                     send_string("addison.chung@lunatech.nl");
 	        }
         break;
-        case CLASS:
+        case CURL:
             if (pressed) {
-                    send_string("class ");
+                    send_string("curl localhost:9095 ");
 	        }
-        break;
-        case EXTENDS:
-            if (pressed) {
-                    send_string("extends ");
-	        }
-        break;
-        case OBJECT:
-            if (pressed) {
-                    send_string("object ");
-	        }
-        break;
-        case OVERRIDE:
-            if (pressed) {
-                    send_string("override ");
-	        }
-        break;
-        case VAL:
-            if (pressed) {
-                    send_string("val ");
-	        }
-        break;
 	}
        
 };
