@@ -6,3 +6,4 @@ SRC += combos.c
 # settings
 COMBO_ENABLE = yes
 DYNAMIC_MACRO_ENABLE = yes
+ENCODER_ENABLE = yes
