@@ -51,7 +51,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     switch(combo_index) {
         case ADDISON:
             if (pressed) {
-                    send_string("addison.dechung@picnic.com");
+                    send_string("addison.dechung@teampicnic.com");
             }
             break;
         case PAGE:
