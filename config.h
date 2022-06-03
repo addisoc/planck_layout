@@ -30,7 +30,6 @@
 //#define MIDI_ADVANCED
 
 #define COMBO_VARIABLE_LEN
-#define COMBO_COUNT COMBO_VARIABLE_LEN
 
                                 
 #define TAPPING_TERM 130

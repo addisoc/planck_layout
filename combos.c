@@ -4,20 +4,18 @@
 
 
 enum combo_events {
-	ADDISON,
-	CURL,
+    ADDISON,
     PAGE,
     ARROW_KEYS,
     SCROLL_WHEEL,
     MOUSE,
     VOLUME,
-    COMBO_LENGTH,
+    COMBO_LENGTH
 };
 
 int COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM BSPC_A_COMBO[]   = {KC_RGHT,  KC_A,    COMBO_END};
-const uint16_t PROGMEM BSPC_C_COMBO[]   = {KC_RGHT,  KC_C,    COMBO_END};
 
 const uint16_t PROGMEM Q_A_COMBO[]   = {KC_Q,  KC_A,    COMBO_END};
 const uint16_t PROGMEM Q_Z_COMBO[]   = {KC_Q,  KC_Z,    COMBO_END};
@@ -35,9 +33,8 @@ enum encoder_modes {
 
 uint8_t encoder_mode = ENC_MODE_SCROLL;
 
-combo_t key_combos[COMBO_COUNT] = {
-	[ADDISON]    = COMBO_ACTION(BSPC_A_COMBO),
-	[CURL]    = COMBO_ACTION(BSPC_C_COMBO),
+combo_t key_combos[COMBO_LENGTH] = {
+    [ADDISON]    = COMBO_ACTION(BSPC_A_COMBO),
     [PAGE]    = COMBO_ACTION(Q_A_COMBO),
     [SCROLL_WHEEL]    = COMBO_ACTION(Q_Z_COMBO),
     [ARROW_KEYS]    = COMBO_ACTION(Q_X_COMBO),
@@ -52,15 +49,10 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
     // when I use them with home row mods.
     action_tapping_process((keyrecord_t){});
     switch(combo_index) {
-    	case ADDISON:
+        case ADDISON:
             if (pressed) {
-                    send_string("addison.chung@lunatech.nl");
-	        }
-            break;
-        case CURL:
-            if (pressed) {
-                    send_string("curl localhost:9095 ");
-	        }
+                    send_string("addison.dechung@picnic.com");
+            }
             break;
         case PAGE:
             if (pressed) {
@@ -87,7 +79,7 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                     encoder_mode = ENC_MODE_VOLUME;
             }
             break;    
-	}
+    }
        
 };
 
@@ -191,32 +183,4 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     return true;
 };
 
-
-// bool encoder_update_user(uint8_t index, bool clockwise) {
-//     switch(biton32(layer_state)){
-//         case 3: 
-//             if (clockwise){
-//               tap_code(KC_RGHT);
-//             } else{
-//               tap_code(KC_LEFT);
-//             }
-//             break;
-//         case 4:
-//             if (clockwise){
-//               tap_code(KC_WH_L);
-//             } else{
-//               tap_code(KC_WH_R);
-//             }     
-//             break;    
-//         default: 
-//             if (clockwise){
-//               tap_code(KC_WH_U);
-//             } else{
-//               tap_code(KC_WH_D);
-//             }
-//             break;
-//     }
-//            return true;
-
-// };
     
