@@ -35,7 +35,8 @@
 #define TAPPING_TERM 130
 #define TAPPING_TERM_PER_KEY
 #define COMBO_TERM 150
-#define TAP_CODE_DELAY 20                               
+#define TAP_CODE_DELAY 20         
+#define CAPS_WORD_IDLE_TIMEOUT 3000  // 3 seconds.                      
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2

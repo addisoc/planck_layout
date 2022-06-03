@@ -5,6 +5,7 @@
 
 enum combo_events {
     ADDISON,
+    CAPS,
     PAGE,
     ARROW_KEYS,
     SCROLL_WHEEL,
@@ -16,12 +17,13 @@ enum combo_events {
 int COMBO_LEN = COMBO_LENGTH;
 
 const uint16_t PROGMEM BSPC_A_COMBO[]   = {KC_RGHT,  KC_A,    COMBO_END};
+const uint16_t PROGMEM CAPS_COMBO[]     = {KC_LSFT,  KC_SPC,    COMBO_END};
 
-const uint16_t PROGMEM Q_A_COMBO[]   = {KC_Q,  KC_A,    COMBO_END};
-const uint16_t PROGMEM Q_Z_COMBO[]   = {KC_Q,  KC_Z,    COMBO_END};
-const uint16_t PROGMEM Q_X_COMBO[]   = {KC_Q,  KC_X,    COMBO_END};
-const uint16_t PROGMEM Q_C_COMBO[]   = {KC_Q,  KC_C,    COMBO_END};
-const uint16_t PROGMEM Q_V_COMBO[]   = {KC_Q,  KC_V,    COMBO_END};
+const uint16_t PROGMEM Q_A_COMBO[]      = {KC_Q,  KC_A,    COMBO_END};
+const uint16_t PROGMEM Q_Z_COMBO[]      = {KC_Q,  KC_Z,    COMBO_END};
+const uint16_t PROGMEM Q_X_COMBO[]      = {KC_Q,  KC_X,    COMBO_END};
+const uint16_t PROGMEM Q_C_COMBO[]      = {KC_Q,  KC_C,    COMBO_END};
+const uint16_t PROGMEM Q_V_COMBO[]      = {KC_Q,  KC_V,    COMBO_END};
 
 enum encoder_modes {
     ENC_MODE_PAGE,
@@ -35,6 +37,7 @@ uint8_t encoder_mode = ENC_MODE_SCROLL;
 
 combo_t key_combos[COMBO_LENGTH] = {
     [ADDISON]    = COMBO_ACTION(BSPC_A_COMBO),
+    [CAPS]    = COMBO_ACTION(CAPS_COMBO),
     [PAGE]    = COMBO_ACTION(Q_A_COMBO),
     [SCROLL_WHEEL]    = COMBO_ACTION(Q_Z_COMBO),
     [ARROW_KEYS]    = COMBO_ACTION(Q_X_COMBO),
@@ -54,6 +57,11 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
                     send_string("addison.dechung@teampicnic.com");
             }
             break;
+        case CAPS:
+            if (pressed) {
+                    caps_word_on();
+            }
+            break;            
         case PAGE:
             if (pressed) {
                     encoder_mode = ENC_MODE_PAGE;
